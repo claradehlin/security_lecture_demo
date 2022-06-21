@@ -33,7 +33,7 @@ module.exports = {
     if (!userData) {
       res.status(200).send({success: false})
     } else {
-      bcrypt.compare[password, userData.passwordHash, function(err, result) {
+      bcrypt.compare(password, userData.passwordHash, function(err, result) {
         if (!err) {
           if (result) {
             const destinyIntro = "Your final destiny is to "
@@ -46,7 +46,7 @@ module.exports = {
           console.log('Error during bycrypt.compare(): ' + err)
           res.status(400).send({success: false})
         }
-      }]
+      })
     }
 
   }
